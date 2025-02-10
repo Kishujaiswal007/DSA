@@ -1,20 +1,26 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        if(x<0){
+        int dup=x;
+        int sum=0;
+        bool isNegative=(x<0);
+        if(isNegative){
             return false;
-        }
-        long int temp,sum=0,r;
-            temp=x;
-        while(x!=0){
-            r=x%10;
-            sum=(sum*10)+r;
+        }else{
+        while(x>0){
+            int rem=x%10;
+             if(sum>INT_MAX/10 || (sum==INT_MAX/10 && rem>7)){
+                return 0;
+                // break;
+            }
+            sum=(sum*10)+rem;
             x=x/10;
         }
-        if(temp==sum)
+        if(sum==dup){
             return true;
-        
-        else
+        }else{
             return false;
+        }
+        }
     }
 };
