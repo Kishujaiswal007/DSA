@@ -14,9 +14,7 @@ class Solution {
             if(nums[i]!=0){
                 swap(nums,i,j);
                 j++;
-                 while (j < n && nums[j] != 0) {
-                    j++;  // Skip over already moved non-zeros
-                }
+                 
             }
         }
        
