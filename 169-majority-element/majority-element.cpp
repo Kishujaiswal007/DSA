@@ -8,7 +8,11 @@ public:
             if (count == 0) {
                 candidate = num;
             }
-            count += (num == candidate) ? 1 : -1;
+            if(num== candidate){
+                count++;
+            }
+            else 
+                count--;
         }
 
         return candidate;
