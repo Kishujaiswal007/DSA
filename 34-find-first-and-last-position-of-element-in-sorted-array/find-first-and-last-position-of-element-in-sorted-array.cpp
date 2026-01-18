@@ -13,8 +13,8 @@ public:
                 high=mid-1;
             }
             else{
-                ans1=mid;
-                high=mid-1;
+                ans1=mid;   // store first occurence
+                high=mid-1; 
             }} ans.push_back(ans1);
 
             int low1=0, high1=nums.size()-1;
@@ -28,7 +28,7 @@ public:
                 high1=mid1-1;
             }
             else{
-                ans2=mid1;
+                ans2=mid1;   // store last occurence
                 low1=mid1+1;
             }} ans.push_back(ans2);
         return ans;
