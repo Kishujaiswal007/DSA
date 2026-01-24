@@ -3,24 +3,18 @@ public:
     string reverseWords(string s) {
         int n = s.size();
         reverse(s.begin(), s.end());
-
-        int index = 0; // position to write cleaned string
-
-        for (int i = 0; i < n; i++) {
-            if (s[i] != ' ') {
-                if (index != 0)
-                    s[index++] = ' ';
-
-                int j = i;
-                while (j < n && s[j] != ' ')
-                    s[index++] = s[j++];
-
-                reverse(s.begin() + index - (j - i), s.begin() + index);
-                i = j;
+        string ans="";
+        for(int i=0;i<n;i++){
+            string word="";
+            while(i<n && s[i]!=' '){
+                word +=s[i];
+                i++;
+            }
+            reverse(word.begin(),word.end());
+            if(word.size()>0){
+                ans = ans + " "+ word;
             }
         }
-
-        s.resize(index);
-        return s;
+        return ans.substr(1);
     }
 };
