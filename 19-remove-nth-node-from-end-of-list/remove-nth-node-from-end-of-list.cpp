@@ -15,25 +15,22 @@ public:
         ListNode dummy(0);
         dummy.next = head;
 
-        int length = 0;
-        ListNode* temp = head;
+        ListNode* fast = &dummy;
+        ListNode* slow = &dummy;
 
-        // First pass: calculate length
-        while (temp != nullptr) {
-            length++;
-            temp = temp->next;
+        // Step 1: Move fast n steps ahead
+        for (int i = 0; i < n; i++) {
+            fast = fast->next;
         }
 
-        // Find node before the one to delete
-        int steps = length - n;
-        ListNode* curr = &dummy;
-
-        for (int i = 0; i < steps; i++) {
-            curr = curr->next;
+        // Step 2: Move both until fast reaches last node
+        while (fast->next != nullptr) {
+            fast = fast->next;
+            slow = slow->next;
         }
 
-        // Delete node
-        curr->next = curr->next->next;
+        // Step 3: Remove nth node
+        slow->next = slow->next->next;
 
         return dummy.next;
     }
