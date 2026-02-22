@@ -11,16 +11,14 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-      ListNode* prev = nullptr;
-        ListNode* curr = head;
 
-        while (curr != nullptr) {
-            ListNode* next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
-        }
+        if(head==NULL || head->next==NULL){//base condition
+        return head;}
+       ListNode* newHead=reverseList(head->next);  // recursive call
+        //reverse connection
+        head->next->next=head;
+        head->next=NULL;
+        return newHead;
 
-        return prev;
-    }
+       }
 };
