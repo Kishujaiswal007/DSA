@@ -1,23 +1,34 @@
 class Solution {
 public:
-void fun(vector<int>&nums,vector<int>&temp,vector<vector<int>>&ans,int ind)
-{
-    if(ind==nums.size())
-    {
-        ans.push_back(nums);
-        return;
+
+    void helper(vector<int>& nums,vector<int>& current,vector<bool>& used,vector<vector<int>>& result){
+
+        // Base case
+        if(current.size() == nums.size()){
+            result.push_back(current);
+            return;
+        }
+
+        for(int i = 0; i < nums.size(); i++){
+
+            if(used[i]) continue;   // skip used numbers
+            current.push_back(nums[i]); // push the elem to current
+            used[i] = true; // update it to true
+
+            helper(nums, current, used, result);// recursive call
+            current.pop_back();// backtrack
+            used[i] = false; // so that again it can be use by other branches
+        }
     }
-    for(int i=ind;i<nums.size();i++)
-    {
-        swap(nums[ind],nums[i]);
-        fun(nums,temp,ans,ind+1);
-        swap(nums[ind],nums[i]);
-    }
-}
+
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>>ans;
-        vector<int>temp;
-        fun(nums,temp,ans,0);
-        return ans;
+
+        vector<vector<int>> result;
+        vector<int> current;
+        vector<bool> used(nums.size(), false); // for keeping track of used elem
+
+        helper(nums, current, used, result);
+
+        return result;
     }
 };
