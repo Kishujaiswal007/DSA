@@ -1,6 +1,5 @@
 class Solution {
 public:
-
     void helper(vector<int>& nums,vector<int>& current,vector<bool>& used,vector<vector<int>>& result){
 
         // Base case
@@ -28,7 +27,6 @@ public:
         vector<bool> used(nums.size(), false); // for keeping track of used elem
 
         helper(nums, current, used, result);
-
         return result;
     }
 };
