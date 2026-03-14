@@ -12,13 +12,6 @@
 class Solution {
 public:
     bool helper(TreeNode* root,int targetSum){
-        // int left=0;
-        // int right=0;
-        // if(root==NULL) return -1;
-        // left=helper(root->left,targetSum)+left;
-        // right=helper(root->right,targetSum)+right;
-        // if(left>targetSum || right>targetSum) return -1;
-        // return 1;
         if(root==NULL) return false;
          if(root->left==NULL && root->right==NULL && targetSum==root->val) return true;
        return helper(root->left,targetSum-root->val) || helper(root->right,targetSum-root->val);
