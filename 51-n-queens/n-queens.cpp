@@ -34,7 +34,7 @@ public:
 
         vector<int> col(n, 0);
         vector<int> diag1(2*n, 0);        // row + col
-        vector<int> diag2(2*n, 0);        // row - col + n - 1
+        vector<int> diag2(2*n, 0);       // row - col + n - 1
 
         solve(n, 0, board, col, diag1, diag2, result);
         return result;
