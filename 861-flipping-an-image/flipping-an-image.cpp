@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> flipAndInvertImage(vector<vector<int>>& image) {
-        int n=image.size();
+       // int n=image.size();
         int row=image.size();
         int col=image[0].size();
         for(int i=0;i<row;i++){
