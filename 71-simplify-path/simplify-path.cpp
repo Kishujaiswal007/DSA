@@ -28,11 +28,6 @@ public:
             res+='/';
             res+=v[i];
         }
-        if (res.empty()){
-            return "/";
-        }
-        else{
-            return res;
-        }
+        return res.empty()?"/":res;
     }
 };
