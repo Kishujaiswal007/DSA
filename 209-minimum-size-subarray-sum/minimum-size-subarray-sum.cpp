@@ -7,11 +7,11 @@ public:
         for(int i=0;i<nums.size();i++){
             sum+=nums[i];
             while(sum >= target){
-                minLen=min(minLen,i-left+1);
-                sum -=nums[left];
-                left++;
+            minLen=min(minLen,i-left+1);
+            sum -=nums[left];
+            left++;
             }
-        }
-        return minLen == INT_MAX ? 0 : minLen;
+           
+        } return minLen == INT_MAX ? 0 : minLen;
     }
 };
