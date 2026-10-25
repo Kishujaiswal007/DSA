@@ -7,12 +7,13 @@ public:
         for( i=0;i<k;i++){
             sum+=nums[i];
         }
-        ans=sum;
+        ans=sum/k;
         for(i=k;i<nums.size();i++){
                  sum+=nums[i];
             sum-=nums[i-k];
-            ans=max(ans,sum);
+            ans=max(ans,sum/k);
         }
-        return ans/k;
+        ans=max(ans,sum/k);
+        return ans;
     }
 };
